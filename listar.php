@@ -12,14 +12,17 @@
 
     <?php
     include_once('conexion.php');
+    include_once('cabecera.php');
 
-
+    echo '<pre>';
     $sql = "SELECT id,nombre,apellido FROM usuarios";
     $resultado = $conexion->query($sql);
 
 
     if ($resultado->num_rows > 0) {
         while ($fila = $resultado->fetch_assoc()) {
+
+
             echo $fila['id'] . " " . $fila['nombre'] . " " . $fila['apellido'] . "<hr>";
         }
     } else {
@@ -28,8 +31,10 @@
 
     ?>
 
+    </pre>
 
-    <a href="index.php">Volver</a>
+
+
 </body>
 
 </html>

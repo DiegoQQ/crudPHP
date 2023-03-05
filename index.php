@@ -8,7 +8,17 @@
     <title>Document</title>
 </head>
 
+
+
 <body>
+
+    <?php
+    include_once('cabecera.php');
+    ?>
+
+    <pre>
+
+
 
     <form action="insertar.php" method="post">
 
@@ -23,7 +33,7 @@
 
     </form>
 
-
+    </pre>
     <?php
     include_once('conexion.php');
 
