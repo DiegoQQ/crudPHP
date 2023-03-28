@@ -10,23 +10,32 @@
 
 <body>
     <?php
+        include_once('cabecera.php');
+        include_once('conexion.php');
+    ?>
+    <pre>
+    <?php
+    $sql;
 
-    include_once('cabecera.php');
-    include_once('conexion.php');
-
-    echo '<pre>';
-    $sql = "SELECT id,nombre,apellido FROM usuarios";
+    if ($_GET['id']) {
+        $sql = "SELECT id,nombre,apellido,profesion,correo FROM usuarios WHERE ID = " . $_GET['id'];
+    }else {
+        $sql = "SELECT id,nombre,apellido,profesion,correo FROM usuarios";
+    }
     $resultado = $conexion->query($sql);
 
-
     if ($resultado->num_rows > 0) {
-        while ($fila = $resultado->fetch_assoc()) {
+        foreach ($resultado as $fila) {
 
             echo "<form action=actualizarR.php method='post'><input type='text' readonly name='id' value='" . $fila['id'] . "'>";
 
             echo "<input type='text' name='nombre' value='" . $fila['nombre'] . "'>";
 
             echo "<input type='text' name='apellido' value='" . $fila['apellido'] . "'>";
+
+            echo "<input type='text' name='profesion' value='" . $fila['profesion'] . "'>";
+
+            echo "<input type='text' name='correo' value='" . $fila['correo'] . "'>";
 
             echo "<button>Enviar</button></form><hr>";
 
@@ -37,15 +46,9 @@
     } else {
         echo "Sin registros encontrados en la base de datos";
     }
-
-
-
-
-
-
     ?>
-
     </pre>
+
 </body>
 
 </html>

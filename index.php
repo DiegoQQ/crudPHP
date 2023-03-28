@@ -13,12 +13,9 @@
 <body>
 
     <?php
-    include_once('cabecera.php');
+        include_once('cabecera.php');
     ?>
-
     <pre>
-
-
 
     <form action="insertar.php" method="post">
 
@@ -28,6 +25,12 @@
         <label>Apellido</label>
         <input type="text" name="apellido"></input>
 
+        <label>Profesion</label>
+        <input type="text" name='profesion'></input>
+
+        <label>Correo</label>
+        <input type="text" name="correo"></input>
+
         <button>Enviar</button>
 
 
@@ -36,7 +39,7 @@
     </pre>
     <?php
     include_once('conexion.php');
-
+    include_once('footer.php');
     ?>
 
 </body>
